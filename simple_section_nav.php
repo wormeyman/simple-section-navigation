@@ -39,7 +39,7 @@ class SimpleSectionNav extends WP_Widget
 		if ( is_front_page() && !$instance['show_on_home'] ) return false;	//if we're on the front page and we haven't chosen to show this anyways, leave
 		
 		if ( is_page() ) {
-			if ( isset($post) && is_object($post) ) _get_post_ancestors($post);   //workaround for occassional problems
+			if ( isset($post) && is_object($post) ) get_post_ancestors($post);   //workaround for occassional problems
 		} else {
 			if ($post_page = get_option("page_for_posts")) $post = get_page($post_page); //treat the posts page as the current page if applicable
 			elseif ($instance['show_on_home']) $sub_front_page = true;	//if want to show on home, and home is the posts page
